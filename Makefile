@@ -1,6 +1,6 @@
 
 
 all:
-	gcc -o hw hw.s hw.c
+	gcc -g -o hw hw.s hw.c
 	./hw
 

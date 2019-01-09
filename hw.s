@@ -41,14 +41,14 @@ bit_reverse:
 bit_rev_loop:
     sub r1,r1,#32
     @ r1 is the index. So store the temp value to be swapped in r4
-    add r1,r1,#2
+    add r1,r1,#2 @ move index up halfword
     ldrsh r4, [r0,r1]
     @rbit  instruction not supported on this ARM, but its a 32 bit rev  r2,r1 @ bit reverse the index
-    str   r4,[r0,r1] @ change something
-    add r1,r1,#2
-    str   r4,[r0,r1] @ change something
-    add r1,r1,#2
-    str   r4,[r0,r1] @ change something
+    add r1,r1,#6 @ move index up 3 halfword
+    strh   r4,[r0,r1] @ change something
+    // add r1,r1,#2
+    ldrsh  r4,=0xDDDD
+    strh   r4,[r0,#30] @ change something
 
     mov     r0, #0    @ Return 0.
     pop     {r4, r5, ip, pc}

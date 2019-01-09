@@ -8,9 +8,10 @@ int i,j,k;
 	asm_main();
 
 	extern bit_reverse();
-	printf(" sizeof(short int) is %d  value atbr[0]=%d atbr[15]=%d about to bit reverse\n", sizeof(short int), array_to_bit_reverse[0], array_to_bit_reverse[15]);
 	for(i=0;i<16;i++)
 		printf(" %i 0x%X  ",i,array_to_bit_reverse[i]);
+	printf("\n");
+	printf(" sizeof(short int) is %d  value atbr[0]=%d atbr[15]=%d about to bit reverse\n", sizeof(short int), array_to_bit_reverse[0], array_to_bit_reverse[15]);
 	
 	bit_reverse(array_to_bit_reverse,16);
 
